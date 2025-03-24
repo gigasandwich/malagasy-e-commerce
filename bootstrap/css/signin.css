@@ -1,0 +1,278 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #48b2d5;
+}
+  
+  .form-index {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+      margin-top: 0px;
+    margin-top: 12%;
+  }
+
+  .form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+      margin-top: 0px;
+    margin-top: 12%;
+  }
+
+  .titre-inscription {
+    text-align: center;
+  }
+
+  .form-signin .form-signin-heading,
+  .form-signin .checkbox {
+    margin-bottom: 10px;
+  }
+
+  .form-signin .checkbox {
+    font-weight: normal;
+  }
+
+  .form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .form-control {
+    margin-bottom: 26%;
+    margin-top: 11%;
+  }
+
+  .nb-joueur {
+    margin-top: 1%;
+    border: 5px solid black;
+    width: 43%;
+    margin-left: 27%;
+    height: 465px;
+    border-radius: 50%;
+    background-color: yellow;
+  }
+
+  .login {
+    margin-bottom: 1%;
+    width: 50%;
+    margin-top: 4%;
+  }
+
+  .container-choiceNb {
+    width: 100%;
+    height: 23%;
+    margin-top: 3%;
+  }
+  
+  .inscription {
+    border: 7px solid black;
+    width: 126%;
+    height: 484px;
+    background-color: #ae26ae;
+  }
+
+  .form-inscription {
+    max-width: 650px;
+    padding: 15px;
+    margin: 0 auto;
+      margin-top: 0px;
+      margin-left: auto;
+    margin-top: 0px;
+    margin-top: 0px;
+    margin-top: 0px;
+    margin-top: 8%;
+    margin-left: 15%;
+  }
+
+  .nbAleatoire {
+
+    border: 1px solid grey;
+    height: 300px;
+    width: 40%;
+
+  }
+
+  .col-md-5 {
+    width: 41.66666667%;
+    height: 400px;
+    border: 1px solid gray;
+  }
+
+  .col-md-offset-2 {
+    margin-left: 16.66666667%;
+    height: 500px;
+  }
+
+  .col-md-offset-1 {
+    margin-left: 8.33333333%;
+    height: 500px;
+  }
+
+  .nbGagnant {
+    margin-left: 16.66666667%;
+    border: 7px solid black;
+    height: 213px;
+    margin-top: 10%;
+    border-radius: 24px;
+    background-color: #00e600;
+    padding-left: 36px;
+}
+
+  .col-md-4 {
+    width: 33.33333333%;
+    height: 65px;
+    padding: 7px;
+  }
+
+  .nombre {
+    margin-bottom: 9%;
+    margin-top: 3%;
+  }
+
+  .boutton {
+    font-size: 34px;
+    width: 70%;
+    background: transparent;
+    border-radius: 10px;
+    transition: border-color ease-in-out .30s,box-shadow ease-in-out .30s;
+  }
+
+  .boutton:hover {
+    font-size: 34px;
+    width: 70%;
+    border-radius: 10px;
+    border-color: blue;
+    background-color: #48b2d5;
+    box-shadow: 0px 2px 23px 6px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 0px 2px 10px 6px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px 2px 10px 6px rgba(0,0,0,0.64);
+    
+  }
+
+  .gagnants {
+    width: 33.33333333%;
+    border: 4px solid green;
+    padding: 7px;
+    height: 300px;
+    border-radius: 23px;
+    background-color: #08cc14;
+    box-shadow: 0px 2px 23px 6px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 0px 2px 6px 6px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px 2px 10px 6px rgba(0,0,0,0.64);
+  }
+
+  .perdants {
+    width: 33.33333333%;
+    border: 4px solid #a80404;
+    padding: 7px;
+    height: 300px;
+    border-radius: 23px;
+    background-color: #ff0e0e;
+    box-shadow: 0px 2px 23px 6px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 0px 2px 6px 6px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px 2px 10px 6px rgba(0,0,0,0.64);
+  }
+
+  .gagnant-perdant {
+    width: 33.33333333%;
+    border: 4px solid green;
+    padding: 7px;
+    height: auto;
+    border-radius: 23px;
+    background-color: #08cc14;
+    box-shadow: 0px 2px 23px 6px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 0px 2px 6px 6px rgba(0,0,0,0.64);
+    -moz-box-shadow: 0px 2px 10px 6px rgba(0,0,0,0.64);
+  }
+
+  .titreGagnants {
+    height: auto;
+    text-align: center;
+  }
+
+  .titrePerdants {
+    height: auto;
+    text-align: center;
+  }
+
+  .boutton-inscrire {
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    width: 50%;
+    margin-left: 26%;
+  }
+
+  .form-control:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 15px rgba(210, 21, 21, 0.6);
+  }
+
+  .form-signin:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 15px rgba(20, 118, 230, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 30px #48b2d5(210, 21, 21, 0.6);
+  }
+
+  .boutton-jouer{
+    transition: border-color ease-in-out .40s,box-shadow ease-in-out .30s;
+  }
+
+  .retour {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 35px;
+
+  }
+
+  .rejouer {
+    width: 70%;
+    transition: border-color ease-in-out .30s,box-shadow ease-in-out .30s;
+  }
+
+  .rejouer:hover{
+    background-color: lightblue;
+    border-color: #48b2d5;
+    border-radius: 5px;
+  }
+
+  .container-choiceNb {
+    width: 100%;
+    height: 23%;
+  }
+
+  .input-Nom {
+    height: 20%;
+  }
+
+  .premierNb {
+    height: 0%;
+  }
+
+  .container-liste2 {
+    background-color: red;
+  }
+
+

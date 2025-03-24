@@ -1,0 +1,97 @@
+.body {
+  display: flex;
+  flex-wrap: wrap;
+}
+.body .header {
+  border: 1px solid grey;
+  width: 100%;
+  height: 10vh;
+}
+.body .section {
+  width: 79.77%;
+  height: 90vh;
+  border: 1px solid grey;
+}
+.body .section .categorie {
+  margin-top: 1%;
+  height: 70vh;
+  border: 1px solid grey;
+  width: 95%;
+  margin-left: 2.5%;
+}
+.body .section .categorie .container-produit {
+  display: flex;
+  margin-left: 9.5%;
+  gap: 2.5%;
+  flex-wrap: wrap;
+}
+.body .section .categorie .container-produit .produit {
+  width: 20%;
+  height: 25vh;
+  margin-bottom: 2%;
+}
+.body .section .categorie .container-produit .produit .img-produit {
+  width: 98.95%;
+  height: 20vh;
+  border: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body .section .categorie .container-produit .produit .voir-ajout {
+  display: flex;
+  justify-content: space-between;
+}
+.body .section .categorie .container-produit .produit .voir-ajout .voir {
+  width: 40%;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body .section .categorie .container-produit .produit .voir-ajout .ajout {
+  width: 40%;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body .panier {
+  width: 20%;
+  height: 90vh;
+  border: 1px solid grey;
+}
+.body .panier .container-panier {
+  border: 1px solid grey;
+  width: 95%;
+  height: 86.99vh;
+  margin-top: 1.5%;
+  margin-left: 2.5%;
+}
+.body .panier .container-panier h3 {
+  margin-left: 2%;
+}
+.body .panier .container-panier .info-panier {
+  border: 1px solid grey;
+  width: 100%;
+  height: 9vh;
+  margin-bottom: 5%;
+}
+.body .panier .container-panier .info-panier .info1 {
+  display: flex;
+}
+.body .panier .container-panier .info-panier .info1 .nom-produit {
+  width: 80%;
+  height: 4vh;
+}
+.body .panier .container-panier .info-panier .info1 .quantite-produit {
+  width: 20%;
+  height: 4vh;
+  text-align: end;
+}
+.body .panier .container-panier .button-panier {
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=main.css.map */

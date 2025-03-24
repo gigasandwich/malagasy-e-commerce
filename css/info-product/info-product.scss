@@ -1,0 +1,65 @@
+.body {
+    display: flex;
+    flex-wrap: wrap;
+    .header {
+        border: 1px solid grey;
+        width: 100%;
+        height: 10vh;
+    }
+
+    .section {
+        width: 69.77%;
+        height: 90vh;
+        border: 1px solid grey;
+        .info-img {
+            border: 1px solid grey;
+            width: 70%;
+            margin-top: 2%;
+            margin-left: 5%;
+            height: 70vh;
+        }
+        .info {
+            margin-left: 5%;
+        }
+    }
+
+    .commentaires {
+        width: 30%;
+        height: 90vh;
+        border: 1px solid grey;
+        h2 {
+            margin-left: 3%;
+        }
+        .commentaire {
+            margin-left: 2%;
+            margin-bottom: 3%;
+            .is-commentaire {
+                border: 1px solid grey;
+                width: 90%;
+                height: 10vh;
+                margin-left: 4%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .classe {
+                width: 90%;
+                margin-left: 4%;
+                text-align: end;
+            }
+        }
+
+        .ajout-commentaire {
+            margin-left: 3%;
+            textarea {
+                margin-top: 1%;
+                width: 95%;
+            }
+            .button-commentaire {
+                display: flex;
+                justify-content: center;
+                margin-top: 5%;
+            }
+        }
+    }
+}
