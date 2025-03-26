@@ -11,7 +11,7 @@ db_name = 'e_commerce'
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{user}@{host}/{db_name}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db.init_app(app) # instead of db = SQLAlchemy(app)
+db.init_app(app) # instead of db = SQLAlchemy(app), we initialize it at the module extensions
 
 @app.route("/")
 def home():
@@ -19,14 +19,7 @@ def home():
 
 @app.route("/main")
 def displayProduct():
-    produits = [
-        {"id": 1, "nom": "Ordi", "prix": 899.99},
-        {"id": 2, "nom": "Clavier", "prix": 129.99},
-        {"id": 3, "nom": "TV", "prix": 249.99},
-        {"id": 4, "nom": "Casque", "prix": 79.99},
-        {"id": 5, "nom": "Souris", "prix": 59.99}
-    ]
-
+    produits = Produit.query.all()
     return render_template("main.html", produits = produits)
 
 if __name__ == "__main__":
