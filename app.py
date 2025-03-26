@@ -1,5 +1,6 @@
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+from model.models import CategorieProduit, Produit, User, Commentaire, Commande
+from extensions import db
 
 app = Flask(__name__, template_folder='./templates', static_folder='./css')
 
@@ -10,7 +11,7 @@ db_name = 'e_commerce'
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{user}@{host}/{db_name}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+db.init_app(app) # instead of db = SQLAlchemy(app)
 
 @app.route("/")
 def home():
@@ -27,7 +28,6 @@ def displayProduct():
     ]
 
     return render_template("main.html", produits = produits)
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
