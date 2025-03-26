@@ -75,35 +75,35 @@
   height: 90vh;
   border: 1px solid grey;
 }
-.body .panier .container-panier {
+.body .panier #panier-contenu {
   border: 1px solid grey;
   width: 95%;
   height: 86.99vh;
   margin-top: 1.5%;
   margin-left: 2.5%;
 }
-.body .panier .container-panier h3 {
+.body .panier #panier-contenu h3 {
   margin-left: 2%;
 }
-.body .panier .container-panier .info-panier {
+.body .panier #panier-contenu .info-panier {
   border: 1px solid grey;
   width: 100%;
   height: 9vh;
   margin-bottom: 5%;
 }
-.body .panier .container-panier .info-panier .info1 {
+.body .panier #panier-contenu .info-panier .info1 {
   display: flex;
 }
-.body .panier .container-panier .info-panier .info1 .nom-produit {
+.body .panier #panier-contenu .info-panier .info1 .nom-produit {
   width: 80%;
   height: 4vh;
 }
-.body .panier .container-panier .info-panier .info1 .quantite-produit {
+.body .panier #panier-contenu .info-panier .info1 .quantite-produit {
   width: 20%;
   height: 4vh;
   text-align: end;
 }
-.body .panier .container-panier .button-panier {
+.body .panier #panier-contenu .button-panier {
   width: 100%;
   height: 5vh;
   display: flex;
