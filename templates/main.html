@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main/main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main/main.css' )}}">
     <title>e-commerce</title>
 </head>
 <body>
@@ -13,9 +13,30 @@
         </div>
         <div class="section">
             <div class="categorie">
-                <h2>Livres</h2>
+                <h2>Categorie 1</h2>
                 <div class="container-produit">
-                    <div class="produit">
+                    {% for produit in produits %}
+                        <div class="produit">
+                            <div class="img-produit">
+                                produit
+                            </div>
+                            <div class="voir-ajout">
+                                <div class="nom">
+                                    {{ produit['nom'] }}
+                                </div>
+                                <div class="prix">
+                                    {{ produit['prix'] }}
+                                </div>
+                                <div class="voir">
+                                    <a href="">Voir</a>
+                                </div>
+                                <div class="ajout">
+                                    <a href="ajout_panier">Ajout</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <!-- <div class="produit">
                         <div class="img-produit">
                             produit
                         </div>
@@ -105,20 +126,7 @@
                                 <a href="">Ajout</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="produit">
-                        <div class="img-produit">
-                            produit
-                        </div>
-                        <div class="voir-ajout">
-                            <div class="voir">
-                                <a href="">Voir</a>
-                            </div>
-                            <div class="ajout">
-                                <a href="">Ajout</a>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

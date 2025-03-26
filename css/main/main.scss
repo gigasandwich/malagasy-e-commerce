@@ -37,6 +37,20 @@
                     .voir-ajout {
                         display: flex;
                         justify-content: space-between;
+                        .nom {
+                            width: 40%;
+                            height: 5vh;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        .prix {
+                            width: 40%;
+                            height: 5vh;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
                         .voir {
                             width: 40%;
                             height: 5vh;
