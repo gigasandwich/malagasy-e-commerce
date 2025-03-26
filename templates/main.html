@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='main/main.css' )}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main/main.css' )}}">
     <title>e-commerce</title>
 </head>
 <body>
@@ -31,169 +31,25 @@
                                     <a href="">Voir</a>
                                 </div>
                                 <div class="ajout">
-                                    <a href="ajout_panier">Ajout</a>
-                                </div>
+                                    <a href="#" class="ajout-panier" data-id="{{ produit['id'] }}">Ajout</a>
+                                </div>                                
                             </div>
                         </div>
                     {% endfor %}
-                    <!-- <div class="produit">
-                        <div class="img-produit">
-                            produit
-                        </div>
-                        <div class="voir-ajout">
-                            <div class="voir">
-                                <a href="">Voir</a>
-                            </div>
-                            <div class="ajout">
-                                <a href="">Ajout</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <div class="img-produit">
-                            produit
-                        </div>
-                        <div class="voir-ajout">
-                            <div class="voir">
-                                <a href="">Voir</a>
-                            </div>
-                            <div class="ajout">
-                                <a href="">Ajout</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <div class="img-produit">
-                            produit
-                        </div>
-                        <div class="voir-ajout">
-                            <div class="voir">
-                                <a href="">Voir</a>
-                            </div>
-                            <div class="ajout">
-                                <a href="">Ajout</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <div class="img-produit">
-                            produit
-                        </div>
-                        <div class="voir-ajout">
-                            <div class="voir">
-                                <a href="">Voir</a>
-                            </div>
-                            <div class="ajout">
-                                <a href="">Ajout</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <div class="img-produit">
-                            produit
-                        </div>
-                        <div class="voir-ajout">
-                            <div class="voir">
-                                <a href="">Voir</a>
-                            </div>
-                            <div class="ajout">
-                                <a href="">Ajout</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <div class="img-produit">
-                            produit
-                        </div>
-                        <div class="voir-ajout">
-                            <div class="voir">
-                                <a href="">Voir</a>
-                            </div>
-                            <div class="ajout">
-                                <a href="">Ajout</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="produit">
-                        <div class="img-produit">
-                            produit
-                        </div>
-                        <div class="voir-ajout">
-                            <div class="voir">
-                                <a href="">Voir</a>
-                            </div>
-                            <div class="ajout">
-                                <a href="">Ajout</a>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
         <div class="panier">
-            <div class="container-panier">
+            <div id="panier-contenu">
                 <h3>Panier</h3>
-                <div class="info-panier">
-                    <div class="info1">
-                        <div class="nom-produit">
-                            Nom produit
-                        </div>
-                        <div class="quantite-produit">
-                            x2
-                        </div>
-                    </div>
-                    <div class="prix">
-                        prix: <br>
-                        400$
-                    </div>
-                </div>
-                <div class="info-panier">
-                    <div class="info1">
-                        <div class="nom-produit">
-                            Nom produit
-                        </div>
-                        <div class="quantite-produit">
-                            x2
-                        </div>
-                    </div>
-                    <div class="prix">
-                        prix: <br>
-                        400$
-                    </div>
-                </div>
-                <div class="info-panier">
-                    <div class="info1">
-                        <div class="nom-produit">
-                            Nom produit
-                        </div>
-                        <div class="quantite-produit">
-                            x2
-                        </div>
-                    </div>
-                    <div class="prix">
-                        prix: <br>
-                        400$
-                    </div>
-                </div>
-                <div class="info-panier">
-                    <div class="info1">
-                        <div class="nom-produit">
-                            Nom produit
-                        </div>
-                        <div class="quantite-produit">
-                            x2
-                        </div>
-                    </div>
-                    <div class="prix">
-                        prix: <br>
-                        400$
-                    </div>
-                </div>
+                
                 <div class="button-panier">
                     <a href="">Acheter</a>
                 </div>
             </div>
         </div>
     </div>
+    <script src="{{ url_for('static', filename='lib-framework/jquery-3.7.1.min.js') }} "></script>
+    <script src="{{ url_for('static', filename='js/panier.js') }}"></script>
 </body>
 </html>
