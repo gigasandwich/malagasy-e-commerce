@@ -12,7 +12,7 @@ CREATE TABLE produit (
     nom VARCHAR(100),
     prix DECIMAL(15,2),
     id_categorie_produit INT,
-    FOREIGN KEY (id_categorie_produit) REFERENCES categorie_produit(id)
+    FOREIGN KEY (id_categorie_produit) REFERENCES categorie_produit(id) ON DELETE CASCADE
 );
 
 CREATE TABLE user (
@@ -27,8 +27,8 @@ CREATE TABLE commentaire (
     commentaire TEXT,
     id_produit INT,
     id_user INT,
-    FOREIGN KEY (id_produit) REFERENCES produit(id),
-    FOREIGN KEY (id_user) REFERENCES user(id)
+    FOREIGN KEY (id_produit) REFERENCES produit(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_user) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE commande (
