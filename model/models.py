@@ -35,6 +35,9 @@ class User(db.Model):
     commentaires: Mapped[List['Commentaire']] = db.relationship('Commentaire', backref='user')
     commandes: Mapped[List['Commande']] = db.relationship('Commande', backref='user')
 
+    def has_bought(self, product_id) -> bool:
+        return Commande.query.filter_by(id_user=self.id, id_produit=product_id).first() is not None
+
     def __repr__(self) -> str:
         return f"<User {self.nom}, Solde: {self.solde}>"
 

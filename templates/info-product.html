@@ -37,13 +37,24 @@
             {% endfor %}
             <div class="ajout-commentaire">
                 <small>Vous avez deja achete notre produit, mettez y un commentaire</small>
-                <textarea name="" id="" cols="30" rows="5"></textarea>
+                <textarea name="comment" id="" cols="30" rows="5" disabled></textarea>
                 <div class="button-commentaire">
                     <button>Publier</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <input type="hidden" name="has-bought" value="{{ has_bought }}">
+    <script src="{{ url_for('static', filename='lib-framework/jquery-3.7.1.min.js') }} "></script>
+    <script>
+        $(document).ready(() => {
+            const hasBought = $("input[name=has-bought]").val().toLowerCase() === "true";
+            const comment = $("textarea[name=comment]");
+            if (hasBought)
+                comment.removeAttr("disabled");
+        });
+    </script>
 </body>
 
 </html>

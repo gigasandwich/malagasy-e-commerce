@@ -39,11 +39,15 @@ def ajoutPanier():
     else:
         return jsonify({"error": "Produit non trouvé"}), 404
     
-@app.route("/produit/info/<int:id>")
-def infoProduit(id):
-    produit = Produit.query.filter_by(id=id).first_or_404()
+@app.route("/produit/info/<int:id_produit>")
+def infoProduit(id_produit):
+    produit = Produit.query.filter_by(id=id_produit).first_or_404()
     commentaires = produit.commentaires
-    return render_template("info-product.html", produit=produit, commentaires=commentaires)
+    
+    user: User = User.query.filter_by(id=1).first()
+    has_bought = user.has_bought(id_produit)
+
+    return render_template("info-product.html", produit=produit, commentaires=commentaires, has_bought=has_bought)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
