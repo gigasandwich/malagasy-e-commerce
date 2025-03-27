@@ -14,34 +14,36 @@
             header
         </div>
         <div class="section">
-            <div class="categorie">
-                <h2>Sokajy 1</h2>
-                <div class="container-produit">
-                    {% for produit in produits %}
-                    <div class="produit">
-                        <div class="img-produit">
-                            <a href="/produit/info/{{ produit.id }}">
-                                <img src="{{ url_for('static', filename='images/produit-placeholder.png') }}" alt="">
-                            </a>
+            {% for categorie, produits in produitsParCategorie.items() %}   
+                <div class="categorie">
+                    <h2>{{ categorie.categorie }}</h2>
+                        <div class="container-produit">
+                            {% for produit in produits %}
+                                <div class="produit">
+                                    <div class="img-produit">
+                                        <a href="/produit/info/{{ produit.id }}">
+                                            <img src="{{ url_for('static', filename='images/produit-placeholder.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="voir-ajout">
+                                        <div class="nom">
+                                            {{ produit.nom }}
+                                        </div>
+                                        <div class="prix">
+                                            {{ produit.prix }}
+                                        </div>
+                                        <div class="voir">
+                                            <a href="">Voir</a>
+                                        </div>
+                                        <div class="ajout">
+                                            <a href="#" class="ajout-panier" data-id="{{ produit['id'] }}">Ajout</a>
+                                        </div>                                
+                                    </div>
+                                </div>
+                            {% endfor %}
                         </div>
-                        <div class="voir-ajout">
-                            <div class="nom">
-                                {{ produit.nom }}
-                            </div>
-                            <div class="prix">
-                                {{ produit.prix }}
-                            </div>
-                            <div class="voir">
-                                <a href="/produit/info/{{ produit.id }}">Hijery</a>
-                            </div>
-                            <div class="ajout">
-                                <a href="#" class="ajout-panier" data-id="{{ produit.id }}">Arotsaka anaty harona</a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
                 </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="panier">
             <div id="panier-contenu">

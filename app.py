@@ -19,9 +19,12 @@ def home():
     return "Hello, Flask!"
 
 @app.route("/main")
-def displayProduct():
-    produits = Produit.query.all()
-    return render_template("main.html", produits = produits)
+def displayProductGroupByCategorie():
+    categories = CategorieProduit.query.all()
+    produitsParCategorie = {
+        categorie: categorie.produits for categorie in categories
+    }
+    return render_template("main.html", produitsParCategorie = produitsParCategorie)
 
 @app.route("/ajoutPanier")
 def ajoutPanier():
