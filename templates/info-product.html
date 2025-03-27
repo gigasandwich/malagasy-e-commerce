@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/info-product/info-product.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/info-product/info-product.css' )}}">
     <title>e-commerce</title>
 </head>
 
@@ -15,7 +15,7 @@
         </div>
         <div class="section">
             <div class="info-img">
-
+                <img src="{{ url_for('static', filename='images/produit-placeholder.png') }}" alt="">
             </div>
             <div class="info">
                 <h2>Categorie</h2>
