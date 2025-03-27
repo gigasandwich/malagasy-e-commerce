@@ -23,23 +23,26 @@
                 <p>{{ produit.prix }}</p>
             </div>
         </div>
-        <div class="commentaires">
+        <div class="container-commentaires">
             <h2>Kaomantera</h2>
-            {% for commentaire in commentaires %}
-            <div class="commentaire">
-                <div class="is-commentaire">
-                    {{ commentaire.commentaire }}
+            <div class="commentaires">
+                {% for commentaire in commentaires %}
+                <div class="commentaire">
+                    <div class="is-commentaire">
+                        {{ commentaire.commentaire }}
+                    </div>
+                    <div class="classe">
+                        {{ commentaire.sentiment }}
+                    </div>
                 </div>
-                <div class="classe">
-                    {{ commentaire.sentiment }}
-                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
             <div class="ajout-commentaire">
-                <small id="info-commentaire">Mbola tsy afaka mikaomanty ianao satria tsy mbola nividy ity vokatra ity</small>
-                <textarea name="comment" id="" cols="30" rows="5" disabled></textarea>
+                <small id="info-commentaire">Mbola tsy afaka mikaomanty ianao satria tsy mbola nividy ity vokatra
+                    ity</small>
+                <textarea name="user-commentaire" id="user-commentaire" cols="30" rows="5" disabled></textarea>
                 <div class="button-commentaire">
-                    <button>Publier</button>
+                    <button>Alefaso</button>
                 </div>
             </div>
         </div>
@@ -48,20 +51,57 @@
     <input type="hidden" name="has-bought" value="{{ has_bought }}">
     <script src="{{ url_for('static', filename='lib-framework/jquery-3.7.1.min.js') }} "></script>
     <script>
-        const comment = $("textarea[name=comment]");
-        const infoCommentaire = $("#info-commentaire");
-
         $(document).ready(() => {
-            checkIfUserHasBought();
+            const hasUserBoughtProduct = checkIfUserHasBought();
+
+            const infoCommentaire = $("#info-commentaire");
+            const userCommentaire = $("textarea[name=user-commentaire]");
+            const publierBtn = $(".button-commentaire button");
+
+            publierBtn.on("click", function () {
+                postComment(infoCommentaire, userCommentaire, hasUserBoughtProduct);
+            });
+
+            function postComment(infoCommentaire, userCommentaire, hasUserBoughtProduct) {
+                if (!hasUserBoughtProduct) {
+                    infoCommentaire.text("Mbola tsy afaka mikaomanty ianao satria tsy mbola nividy ity vokatra ity");
+                    return;
+                }
+
+                if (userCommentaire.val().trim() === "") {
+                    infoCommentaire.text("Tsy nanoratra akory ianao");
+                    return;
+                }
+
+                $.ajax({
+                    url: '/add-comment',
+                    method: 'POST',
+                    data: { comment: userCommentaire.val() },
+                    success: function (response) {
+                        infoCommentaire.text("Asio kaomantera vaovao ");
+                        userCommentaire.val("");
+                    },
+                    error: function (error) {
+                        infoCommentaire.text("Nisy olana " + error);
+                    }
+                });
+            }
+
+            function checkIfUserHasBought() {
+                const hasBought = $("input[name=has-bought]").val().toLowerCase() === "true";
+
+                if (hasBought) {
+                    infoCommentaire.text("Efa nividy an'ito vokatra ito ianao ka afaka mi-kaomanty");
+                    userCommentaire.removeAttr("disabled");
+                } else {
+                    infoCommentaire.text("Tsy afaka mikaomanty ianao satria tsy nividy ity vokatra");
+                    userCommentaire.attr("disabled", true);
+                }
+
+                return hasBought;
+            }
         });
 
-        function checkIfUserHasBought() {
-            const hasBought = $("input[name=has-bought]").val().toLowerCase() === "true";
-            if (hasBought){
-                infoCommentaire.text("Efa nividy an'ito vokatra ito ianao ka afaka mi-kaomanty");
-                comment.removeAttr("disabled");
-            }
-        }
     </script>
 </body>
 
