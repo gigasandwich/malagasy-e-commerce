@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main/main.css' )}}">
     <title>e-commerce</title>
 </head>
+
 <body>
     <div class="body">
         <div class="header">
@@ -19,7 +21,9 @@
                             {% for produit in produits %}
                                 <div class="produit">
                                     <div class="img-produit">
-                                        produit
+                                        <a href="/produit/info/{{ produit.id }}">
+                                            <img src="{{ url_for('static', filename='images/produit-placeholder.png') }}" alt="">
+                                        </a>
                                     </div>
                                     <div class="voir-ajout">
                                         <div class="nom">
@@ -43,10 +47,10 @@
         </div>
         <div class="panier">
             <div id="panier-contenu">
-                <h3>Panier</h3>
-                
+                <h3>Harona</h3>
+
                 <div class="button-panier">
-                    <a href="">Acheter</a>
+                    <a href="">Vidiana</a>
                 </div>
             </div>
         </div>
@@ -54,4 +58,5 @@
     <script src="{{ url_for('static', filename='lib-framework/jquery-3.7.1.min.js') }} "></script>
     <script src="{{ url_for('static', filename='js/panier.js') }}"></script>
 </body>
+
 </html>

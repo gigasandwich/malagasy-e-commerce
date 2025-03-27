@@ -5,7 +5,6 @@ $(document).ready(function() {
         e.preventDefault(); // Empêche le lien de recharger la page
 
         let productId = $(this).data("id"); // Récupère l'ID du produit
-
         $.ajax({
             url: "/ajoutPanier",
             type: "GET",
@@ -22,8 +21,9 @@ $(document).ready(function() {
 
                 mettreAJourPanier();
             },
-            error: function() {
-                alert("Erreur lors de l'ajout au panier !");
+            error: function(e) {
+                alert("Erreur lors de l'ajout au panier !" + e);
+                console.log(e);
             }
         });
     });
