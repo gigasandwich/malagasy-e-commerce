@@ -24,12 +24,11 @@ def displayProduct():
 
 @app.route("/ajoutPanier")
 def ajoutPanier():
-    produits = Produit.query.all()
     product_id = request.args.get("id", type=int)  # Récupère l'ID passé en AJAX
-    produit = next((p for p in produits if p["id"] == product_id), None)
+    produit: Produit = Produit.query.filter_by(id=product_id).first()
     
     if produit:
-        return jsonify(produit)
+        return jsonify(produit.to_dict())
     else:
         return jsonify({"error": "Produit non trouvé"}), 404
     

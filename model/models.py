@@ -22,6 +22,14 @@ class Produit(db.Model):
     commentaires: Mapped[List['Commentaire']] = db.relationship('Commentaire', backref='produit')
     commandes: Mapped[List['Commande']] = db.relationship('Commande', backref='produit')
 
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "nom": self.nom,
+            "prix": float(self.prix),
+            "id_categorie_produit": self.id_categorie_produit,
+        }
+    
     def __repr__(self) -> str:
         return f"<Produit {self.nom}, {self.prix}>"
 
