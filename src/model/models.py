@@ -52,6 +52,14 @@ class Commentaire(db.Model):
     id_produit = db.Column(db.Integer, db.ForeignKey('produit.id'), nullable=False)
     id_user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "commentaire": self.commentaire,
+            "id_produit": self.id_produit,
+            "id_user": self.id_user,
+        }
+    
     def __repr__(self) -> str:
         return f"<Commentaire {self.commentaire[:30]}...>"
 

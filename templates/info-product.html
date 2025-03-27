@@ -42,7 +42,7 @@
                     ity</small>
                 <textarea name="user-commentaire" id="user-commentaire" cols="30" rows="5" disabled></textarea>
                 <div class="button-commentaire">
-                    <button>Alefaso</button>
+                    <button data-id-produit="{{ produit.id }}">Alefaso</button>
                 </div>
             </div>
         </div>
@@ -54,12 +54,12 @@
         const infoCommentaire = $("#info-commentaire");
         const userCommentaire = $("textarea[name=user-commentaire]");
         const publierBtn = $(".button-commentaire button");
-        
+
         $(document).ready(() => {
-            
+
             const hasUserBoughtProduct = checkIfUserHasBought();
 
-            publierBtn.on("click", function () {
+            publierBtn.on("click", function (event) {
                 postComment(infoCommentaire, userCommentaire, hasUserBoughtProduct);
             });
 
@@ -75,12 +75,17 @@
                 }
 
                 $.ajax({
-                    url: '/add-comment',
-                    method: 'POST',
-                    data: { comment: userCommentaire.val() },
+                    url: "/produit/comment",
+                    method: "POST",
+                    data: {
+                        comment: userCommentaire.val(),
+                        id_produit: publierBtn.data("id-produit")
+                    },
                     success: function (response) {
-                        infoCommentaire.text("Asio kaomantera vaovao ");
-                        userCommentaire.val("");
+                        console.log(response)
+                        infoCommentaire.text("Asio kaomantera vaovao");
+                        userCommentaire.val(""); // Videna ilay textarea taloha
+                        window.location.reload();
                     },
                     error: function (error) {
                         infoCommentaire.text("Nisy olana " + error);
