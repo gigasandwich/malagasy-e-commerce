@@ -41,8 +41,8 @@ def infoProduit(id_produit):
     produit = Produit.query.filter_by(id=id_produit).first_or_404()
     commentaires = produit.commentaires
     
-    user: User = User.query.filter_by(id=1).first()
-    has_bought = user.has_bought(id_produit)
+    user_id = 1
+    has_bought = Commande.has_bought(user_id, id_produit)
 
     commentaires = sentiment.get_sentiments(commentaires)
     return render_template("info-product.html", produit=produit, commentaires=commentaires, has_bought=has_bought)

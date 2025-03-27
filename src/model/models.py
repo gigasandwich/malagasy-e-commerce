@@ -42,9 +42,6 @@ class User(db.Model):
     commentaires: Mapped[List['Commentaire']] = db.relationship('Commentaire', backref='user')
     commandes: Mapped[List['Commande']] = db.relationship('Commande', backref='user')
 
-    def has_bought(self, product_id) -> bool:
-        return Commande.query.filter_by(id_user=self.id, id_produit=product_id).first() is not None
-
     def __repr__(self) -> str:
         return f"<User {self.nom}, Solde: {self.solde}>"
 
@@ -63,6 +60,9 @@ class Commande(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     id_produit = db.Column(db.Integer, db.ForeignKey('produit.id'), nullable=False)
     id_user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def has_bought(user_id, product_id) -> bool:
+        return Commande.query.filter_by(id_user=user_id, id_produit=product_id).first() is not None
 
     def __repr__(self) -> str:
         return f"<Commande ProduitID: {self.id_produit}, UserID: {self.id_user}>"

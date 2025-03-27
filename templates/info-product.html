@@ -51,12 +51,13 @@
     <input type="hidden" name="has-bought" value="{{ has_bought }}">
     <script src="{{ url_for('static', filename='js/lib-framework/jquery-3.7.1.min.js') }} "></script>
     <script>
+        const infoCommentaire = $("#info-commentaire");
+        const userCommentaire = $("textarea[name=user-commentaire]");
+        const publierBtn = $(".button-commentaire button");
+        
         $(document).ready(() => {
+            
             const hasUserBoughtProduct = checkIfUserHasBought();
-
-            const infoCommentaire = $("#info-commentaire");
-            const userCommentaire = $("textarea[name=user-commentaire]");
-            const publierBtn = $(".button-commentaire button");
 
             publierBtn.on("click", function () {
                 postComment(infoCommentaire, userCommentaire, hasUserBoughtProduct);
@@ -89,6 +90,7 @@
 
             function checkIfUserHasBought() {
                 const hasBought = $("input[name=has-bought]").val().toLowerCase() === "true";
+                console.log(hasBought);
 
                 if (hasBought) {
                     infoCommentaire.text("Efa nividy an'ito vokatra ito ianao ka afaka mi-kaomanty");
