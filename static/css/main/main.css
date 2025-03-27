@@ -11,10 +11,10 @@
   width: 79.77%;
   height: 90vh;
   border: 1px solid grey;
+  overflow-y: auto;
 }
 .body .section .categorie {
   margin-top: 1%;
-  height: 70vh;
   border: 1px solid grey;
   width: 95%;
   margin-left: 2.5%;

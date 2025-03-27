@@ -12,32 +12,34 @@
             header
         </div>
         <div class="section">
-            <div class="categorie">
-                <h2>Categorie 1</h2>
-                <div class="container-produit">
-                    {% for produit in produits %}
-                        <div class="produit">
-                            <div class="img-produit">
-                                produit
-                            </div>
-                            <div class="voir-ajout">
-                                <div class="nom">
-                                    {{ produit['nom'] }}
+            {% for categorie, produits in produitsParCategorie.items() %}   
+                <div class="categorie">
+                    <h2>{{ categorie.categorie }}</h2>
+                        <div class="container-produit">
+                            {% for produit in produits %}
+                                <div class="produit">
+                                    <div class="img-produit">
+                                        produit
+                                    </div>
+                                    <div class="voir-ajout">
+                                        <div class="nom">
+                                            {{ produit.nom }}
+                                        </div>
+                                        <div class="prix">
+                                            {{ produit.prix }}
+                                        </div>
+                                        <div class="voir">
+                                            <a href="">Voir</a>
+                                        </div>
+                                        <div class="ajout">
+                                            <a href="#" class="ajout-panier" data-id="{{ produit['id'] }}">Ajout</a>
+                                        </div>                                
+                                    </div>
                                 </div>
-                                <div class="prix">
-                                    {{ produit['prix'] }}
-                                </div>
-                                <div class="voir">
-                                    <a href="">Voir</a>
-                                </div>
-                                <div class="ajout">
-                                    <a href="#" class="ajout-panier" data-id="{{ produit['id'] }}">Ajout</a>
-                                </div>                                
-                            </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
                 </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="panier">
             <div id="panier-contenu">
