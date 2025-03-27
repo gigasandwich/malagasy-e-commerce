@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 from model.models import CategorieProduit, Produit, User, Commentaire, Commande
+from model import sentiment
 from extensions import db
 
 app = Flask(__name__, template_folder='./templates', static_folder='./static')
@@ -40,6 +41,7 @@ def infoProduit(id_produit):
     user: User = User.query.filter_by(id=1).first()
     has_bought = user.has_bought(id_produit)
 
+    commentaires = sentiment.get_sentiments(commentaires)
     return render_template("info-product.html", produit=produit, commentaires=commentaires, has_bought=has_bought)
 
 if __name__ == "__main__":
