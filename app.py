@@ -48,6 +48,30 @@ def infoProduit(id_produit):
     commentaires = sentiment.get_sentiments(commentaires)
     return render_template("info-product.html", produit=produit, commentaires=commentaires, has_bought=has_bought)
 
+@app.route("/acheter", methods = ["POST"])
+def acheter():
+    data = request.get_json()
+    panier = data.get("panier", [])
+    idUser = 1
+
+    if not panier:
+        return jsonify({"message": "Le panier est vide"}), 400
+
+    try:
+        for produit in panier:
+            nouvelle_commande = Commande(
+                id_produit = produit['id'],
+                id_user = idUser,
+                quantite = produit['quantite']
+            )
+            db.session.add(nouvelle_commande)
+        
+        db.session.commit()
+        return jsonify({"message": "Achat effectue avec succes"})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+    
 @app.route("/produit/comment", methods=['POST'])
 def addComment():
     comment = request.form.get('comment')

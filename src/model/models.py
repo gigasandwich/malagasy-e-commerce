@@ -68,6 +68,7 @@ class Commande(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     id_produit = db.Column(db.Integer, db.ForeignKey('produit.id'), nullable=False)
     id_user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    quantite = db.column(db.Integer)
 
     def has_bought(user_id, product_id) -> bool:
         return Commande.query.filter_by(id_user=user_id, id_produit=product_id).first() is not None
