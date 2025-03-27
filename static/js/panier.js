@@ -13,7 +13,7 @@ $(document).ready(function() {
             success: function(data) {
                 if (!panier[data.id]) {
                     // Si le produit n'est pas encore dans le panier, on l'ajoute avec quantité 1
-                    panier[data.id] = { nom: data.nom, prix: data.prix, quantite: 1 };
+                    panier[data.id] = { nom: data.nom, prix: data.prix, quantite: 1, id: productId };
                 } else {
                     // Si le produit est déjà dans le panier, on augmente la quantité
                     panier[data.id].quantite++;
@@ -42,6 +42,9 @@ $(document).ready(function() {
                 panierHTML += `
                     <div class="info-panier">
                         <div class="info1">
+                            <div class="id" style = "display: none;"> 
+                                ${produit.id}
+                            </div>  
                             <div class="nom-produit">
                                 ${produit.nom}
                             </div>
@@ -60,10 +63,43 @@ $(document).ready(function() {
 
         panierHTML += `
             <div class="button-panier">
-                <a href="">Acheter</a>
+                <a href="#">Acheter</a>
             </div>
         `;
 
         $("#panier-contenu").html(panierHTML);
     }
+
+    $(".button-panier a").click(function(event) {
+        event.preventDefault();
+        let panierData = []     // variable de stckage des donnees dans le panier
+
+        $(".info-panier").each(function(){
+            let nomProduit = $(this).find(".nom-produit").text().trim();
+            let quantite = parseInt$(this).find(".quantite-produit").text().replace("x", "");
+            let prix = parseFloat$(this).find(".prix").text().replace("prix", "").replace("$", "");
+            let id = parseInt$(this).find(".id").text().trim();
+
+            panierData.push({
+                id: id,
+                nom: nomProduit,
+                quantite: quantite,
+                prix: prix
+            });
+        });
+        console.log("Données envoyées :", panierData); // Vérifie dans la console
+
+        $.ajax({
+            url: "/acheter",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({panier: panierData}),     // convertir en JSON
+            success:function(response) {
+                alert(response.message);
+            },
+            error: function(error) {
+                console.error("Erreur lors de l'achat", error);
+            }
+        });
+    });
 });

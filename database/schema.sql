@@ -35,6 +35,7 @@ CREATE TABLE commande (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_produit INT,
     id_user INT,
+    quantite INT,
     FOREIGN KEY (id_produit) REFERENCES produit(id),
     FOREIGN KEY (id_user) REFERENCES user(id)
 );

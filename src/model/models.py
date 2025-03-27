@@ -63,6 +63,7 @@ class Commande(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     id_produit = db.Column(db.Integer, db.ForeignKey('produit.id'), nullable=False)
     id_user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    quantite = db.column(db.Integer)
 
     def __repr__(self) -> str:
         return f"<Commande ProduitID: {self.id_produit}, UserID: {self.id_user}>"
