@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/info-product/info-product.css">
     <title>e-commerce</title>
 </head>
+
 <body>
     <div class="body">
         <div class="header">
@@ -17,36 +19,22 @@
             </div>
             <div class="info">
                 <h2>Categorie</h2>
-                <p>Nom de produit</p>
-                <p>400$</p>
+                <p>{{ produit.nom }}</p>
+                <p>{{ produit.prix }}</p>
             </div>
         </div>
         <div class="commentaires">
             <h2>Commentaires</h2>
+            {% for commentaire in commentaires %}
             <div class="commentaire">
                 <div class="is-commentaire">
-                    commentaires
+                    {{ commentaire.commentaire }}
                 </div>
                 <div class="classe">
                     positif
                 </div>
             </div>
-            <div class="commentaire">
-                <div class="is-commentaire">
-                    commentaires
-                </div>
-                <div class="classe">
-                    positif
-                </div>
-            </div>
-            <div class="commentaire">
-                <div class="is-commentaire">
-                    commentaires
-                </div>
-                <div class="classe">
-                    positif
-                </div>
-            </div>
+            {% endfor %}
             <div class="ajout-commentaire">
                 <small>Vous avez deja achete notre produit, mettez y un commentaire</small>
                 <textarea name="" id="" cols="30" rows="5"></textarea>
@@ -57,4 +45,5 @@
         </div>
     </div>
 </body>
+
 </html>

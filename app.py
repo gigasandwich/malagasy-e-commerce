@@ -38,7 +38,12 @@ def ajoutPanier():
         return jsonify(produit)
     else:
         return jsonify({"error": "Produit non trouvé"}), 404
-
+    
+@app.route("/produit/info/<int:id>")
+def infoProduit(id):
+    produit = Produit.query.filter_by(id=id).first_or_404()
+    commentaires = produit.commentaires
+    return render_template("info-product.html", produit=produit, commentaires=commentaires)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

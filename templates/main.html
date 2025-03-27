@@ -20,22 +20,22 @@
                     {% for produit in produits %}
                     <div class="produit">
                         <div class="img-produit">
-                            <a href="/produit/detail/{{ produit['id'] }}">
+                            <a href="/produit/info/{{ produit.id }}">
                                 <img src="{{ url_for('static', filename='images/produit-placeholder.png') }}" alt="">
                             </a>
                         </div>
                         <div class="voir-ajout">
                             <div class="nom">
-                                {{ produit['nom'] }}
+                                {{ produit.nom }}
                             </div>
                             <div class="prix">
-                                {{ produit['prix'] }}
+                                {{ produit.prix }}
                             </div>
                             <div class="voir">
                                 <a href="">Voir</a>
                             </div>
                             <div class="ajout">
-                                <a href="#" class="ajout-panier" data-id="{{ produit['id'] }}">Ajout</a>
+                                <a href="#" class="ajout-panier" data-id="{{ produit.id }}">Ajout</a>
                             </div>
                         </div>
                     </div>
