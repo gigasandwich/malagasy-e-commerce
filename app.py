@@ -24,13 +24,7 @@ def displayProduct():
 
 @app.route("/ajoutPanier")
 def ajoutPanier():
-    produits = [
-        {"id": 1, "nom": "Ordi", "prix": 899.99},
-        {"id": 2, "nom": "Clavier", "prix": 129.99},
-        {"id": 3, "nom": "TV", "prix": 249.99},
-        {"id": 4, "nom": "Casque", "prix": 79.99},
-        {"id": 5, "nom": "Souris", "prix": 59.99}
-    ]
+    produits = Produit.query.all()
     product_id = request.args.get("id", type=int)  # Récupère l'ID passé en AJAX
     produit = next((p for p in produits if p["id"] == product_id), None)
     
