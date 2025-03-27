@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request
-from model.models import CategorieProduit, Produit, User, Commentaire, Commande
-from model import sentiment
+from src.model.models import CategorieProduit, Produit, User, Commentaire, Commande
+from src.training import sentiment
 from extensions import db
 
 app = Flask(__name__, template_folder='./templates', static_folder='./static')
