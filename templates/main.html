@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main/main.css' )}}">
     <title>e-commerce</title>
 </head>
+
 <body>
     <div class="body">
         <div class="header">
@@ -16,25 +18,27 @@
                 <h2>Categorie 1</h2>
                 <div class="container-produit">
                     {% for produit in produits %}
-                        <div class="produit">
-                            <div class="img-produit">
-                                produit
+                    <div class="produit">
+                        <div class="img-produit">
+                            <a href="/produit/detail/{{ produit['id'] }}">
+                                <img src="{{ url_for('static', filename='images/produit-placeholder.png') }}" alt="">
+                            </a>
+                        </div>
+                        <div class="voir-ajout">
+                            <div class="nom">
+                                {{ produit['nom'] }}
                             </div>
-                            <div class="voir-ajout">
-                                <div class="nom">
-                                    {{ produit['nom'] }}
-                                </div>
-                                <div class="prix">
-                                    {{ produit['prix'] }}
-                                </div>
-                                <div class="voir">
-                                    <a href="">Voir</a>
-                                </div>
-                                <div class="ajout">
-                                    <a href="#" class="ajout-panier" data-id="{{ produit['id'] }}">Ajout</a>
-                                </div>                                
+                            <div class="prix">
+                                {{ produit['prix'] }}
+                            </div>
+                            <div class="voir">
+                                <a href="">Voir</a>
+                            </div>
+                            <div class="ajout">
+                                <a href="#" class="ajout-panier" data-id="{{ produit['id'] }}">Ajout</a>
                             </div>
                         </div>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -42,7 +46,7 @@
         <div class="panier">
             <div id="panier-contenu">
                 <h3>Panier</h3>
-                
+
                 <div class="button-panier">
                     <a href="">Acheter</a>
                 </div>
@@ -52,4 +56,5 @@
     <script src="{{ url_for('static', filename='lib-framework/jquery-3.7.1.min.js') }} "></script>
     <script src="{{ url_for('static', filename='js/panier.js') }}"></script>
 </body>
+
 </html>
