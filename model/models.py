@@ -7,8 +7,6 @@ class CategorieProduit(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     categorie = db.Column(db.String(50), nullable=False)
     
-    produits: Mapped[List['Produit']] = db.relationship('Produit', backref='categorie')
-
     def __repr__(self) -> str:
         return f"<CategorieProduit {self.categorie}>"
 
@@ -19,6 +17,7 @@ class Produit(db.Model):
     prix = db.Column(db.Numeric(15, 2), nullable=False)
     id_categorie_produit = db.Column(db.Integer, db.ForeignKey('categorie_produit.id'), nullable=False)
     
+    categorie: Mapped['CategorieProduit'] = db.relationship('CategorieProduit', backref='produits')
     commentaires: Mapped[List['Commentaire']] = db.relationship('Commentaire', backref='produit')
     commandes: Mapped[List['Commande']] = db.relationship('Commande', backref='produit')
 
