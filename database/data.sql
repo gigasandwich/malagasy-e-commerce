@@ -174,3 +174,6 @@ INSERT INTO commentaire (commentaire, id_produit, id_user) VALUES
 ('Trano rava dia misy lesona lehibe amin''ny fiainana.', 30, 3),
 ('Tantaran''ny fiainana izay tena mahakasika.', 30, 4),
 ('Fomba fanoratra mahaliana, tiako be!', 30, 5);
+
+INSERT INTO commande (id_produit, id_user) VALUES 
+(1, 1);

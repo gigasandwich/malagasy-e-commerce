@@ -1,7 +1,8 @@
 import joblib
+import extensions
 
 def get_sentiments(comments: list):
-    model_name = f'data/decisiontree-tfidf.pkl'.lower()
+    model_name = f'{extensions.trained_models_folder}/decisiontree-tfidf.pkl'.lower()
     model, vectorizer = load_model(f'./{model_name}')
 
     X_new = [comment.commentaire for comment in comments]
